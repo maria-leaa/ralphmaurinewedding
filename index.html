@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ralph & Maurine | May 02, 2026</title>
+
+    <!-- Social Media Link Preview (Open Graph) -->
+    <meta property="og:title" content="The Wedding of Ralph & Maurine">
+    <meta property="og:description" content="You are invited to witness and celebrate our wedding on May 02, 2026.">
+    <meta property="og:image" content="image-banner.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com"> <!-- Replace with your actual URL later -->
+
+    <!-- Twitter Link Preview -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ralph & Maurine | May 02, 2026">
+    <meta name="twitter:description" content="You are invited to witness our enchanted wedding day.">
+    <meta name="twitter:image" content="image-banner.png">
+
+    <!-- Existing Links -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&family=Great+Vibes&family=Cinzel:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- NAVIGATION BAR -->
+<nav class="navbar" id="main-nav">
+    <div class="nav-container">
+        <a href="#hero" class="nav-logo">R & M</a>
+
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="#hero" class="nav-item">Home</a></li>
+            <li><a href="#story" class="nav-item">Our Story</a></li>
+            <li><a href="#timeline" class="nav-item">Timeline</a></li>
+            <li><a href="#entourage" class="nav-item">Entourage</a></li>
+            <li><a href="#venue" class="nav-item">Venue</a></li>
+            <li><a href="#gallery" class="nav-item">Gallery</a></li>
+            <li><a href="#gift" class="nav-item">Gift Guide</a></li>
+            <li><a href="#rsvp" class="nav-item">RSVP</a></li>
+        </ul>
+
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+</nav>
+
+<body>
+
+    <!-- Firefly Background Layer -->
+    <div id="fireflies"></div>
+
+    <!-- 1. ENTRANCE OVERLAY (ENHANCED CURSIVE VERSION) -->
+    <div id="entrance-overlay">
+        <div class="overlay-bg-zoom"></div>
+        <div class="overlay-vignette"></div>
+
+        <div class="entrance-content">
+            <p class="invited-label" data-aos="fade-up" data-aos-delay="500">You're Invited</p>
+
+            <div class="names-wrapper" data-aos="fade-up" data-aos-delay="1000">
+                <h2 class="script-sub">to the wedding of</h2>
+                <h1 class="names-elegant">Ralph <span class="ampersand">&</span> Maurine</h1>
+            </div>
+
+            <div class="entrance-divider" data-aos="fade-up" data-aos-delay="1500">
+                <span class="diamond"></span>
+            </div>
+
+
+            <!-- <div data-aos="fade-up" data-aos-delay="2000">
+                <button id="enter-btn" class="btn-luxury-magical">
+                    <span class="btn-text">OPEN THE INVITATION</span>
+                    <div class="shimmer"></div>
+                    <span></span><span></span><span></span>
+            </div>
+
+            </button> -->
+            <div data-aos="fade-up" data-aos-delay="2000">
+                <button id="enter-btn" class="btn-luxury-magical">
+                    <span class="btn-text">OPEN THE INVITATION</span>
+                    <div class="shimmer"></div>
+                    <span></span><span></span><span></span>
+                </button> 
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Change this in your HTML -->
+    <audio id="bg-music" loop preload="metadata">
+        <source src="https://res.cloudinary.com/dtxbngnr7/video/upload/v1773853049/He_knows_Violin_cover_heq9nm.mp3"
+            type="audio/mpeg">
+    </audio>
+    <div class="music-sphere" onclick="toggleMusic()">
+        <span id="m-icon">🔇</span>
+    </div>
+
+    <!-- 2. HERO SECTION -->
+    <header id="hero" class="hero">
+        <div class="hero-vignette"></div> <!-- Adds the dreamy soft edges -->
+        <div class="container center" data-aos="fade-up">
+            <p class="hero-label">You are invited to witness</p>
+
+            <div class="hero-names-container">
+                <h1 class="hero-names-elegant">Ralph <span class="hero-amp">&</span> Maurine</h1>
+            </div>
+
+            <p class="hero-quote">
+                "With grateful hearts and God’s blessings, we joyfully invite you <br>
+                to witness and celebrate our wedding."
+            </p>
+
+            <p class="hero-date-elegant">MAY 02, 2026</p>
+
+            <!-- ELEGANT MINIMALIST COUNTDOWN -->
+            <div id="countdown" class="countdown-minimal">
+                <div class="cd-item-elegant">
+                    <span id="days">00</span>
+                    <label>Days</label>
+                </div>
+                <div class="cd-divider"></div>
+                <div class="cd-item-elegant">
+                    <span id="hours">00</span>
+                    <label>Hours</label>
+                </div>
+                <div class="cd-divider"></div>
+                <div class="cd-item-elegant">
+                    <span id="mins">00</span>
+                    <label>Mins</label>
+                </div>
+                <div class="cd-divider"></div>
+                <div class="cd-item-elegant">
+                    <span id="secs">00</span>
+                    <label>Secs</label>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. OUR STORY -->
+    <!-- <section class="section-enchanted-light">
+        <div class="container flex-row">
+            <div class="story-image" data-aos="fade-right">
+                <img src="couple1.png" alt="Couple"
+                    onerror="this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800'">
+                <div class="frame-accent"></div>
+            </div>
+            <div class="story-text" data-aos="fade-left">
+                <h2 class="serif-title gold">🌙 Bound by Faith & Love</h2>
+                <div class="leaf-divider" style="text-align: left;">🌿✨</div>
+                <p>Our journey began as high school sweethearts. Through the years, our relationship was strengthened as
+                    we served together in the church youth organization, embracing the values of faith and service.</p>
+                <p>Today, as public school teachers, we continue to grow. We are deeply grateful for the blessings that
+                    guided us to this day.</p>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- 3. OUR STORY (ENHANCED SCRAPBOOK VERSION) -->
+    <!-- 3. OUR STORY -->
+    <section class="section-enchanted-light section-story">
+        <div class="container story-wrapper">
+
+            <!-- LEFT SIDE: Image with Ornamental Frame -->
+            <div class="story-image-container" data-aos="fade-right">
+                <div class="scrapbook-frame">
+                    <img src="couple1.png" alt="Ralph & Maurine"
+                        onerror="this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800'">
+                </div>
+                <!-- Decorative Seal -->
+                <div class="story-seal" data-aos="zoom-in" data-aos-delay="500">✨</div>
+            </div>
+
+            <!-- RIGHT SIDE: Text with Elegant Lead-in -->
+            <div class="story-text-container" data-aos="fade-left">
+                <span class="script-intro">The Prelude</span>
+                <h2 class="serif-title gold">Bound by Faith & Love</h2>
+                <div class="leaf-divider" style="text-align: left;">🌿✨</div>
+
+                <div class="story-narrative">
+                    <p class="lead-text">
+                        From the shared hallways of our youth to the classrooms of our future...
+                    </p>
+                    <p>
+                        Our journey began as high school sweethearts. Through the years, our bond was strengthened as we
+                        served together in the church youth organization, embracing the values of <strong>faith,
+                            patience, and service.</strong>
+                    </p>
+                    <p>
+                        Today, as public school teachers, we continue to grow side-by-side. We are deeply grateful for
+                        the divine blessings that have guided our paths from students of life to partners for eternity.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GENTLE REMINDERS SECTION -->
+    <section class="section-enchanted-light">
+        <div class="container center">
+            <h2 class="serif-title gold" data-aos="fade-up">✨ Gentle Reminders</h2>
+            <div class="leaf-divider" data-aos="fade-up">🌿✨🌿</div>
+
+            <div class="reminders-grid">
+                <!-- Arrival & Ceremony -->
+                <div class="reminder-card" data-aos="fade-up">
+                    <div class="reminder-icon">🕰️</div>
+                    <h4>Arrival & Ceremony</h4>
+                    <p>The ceremony will begin at exactly <strong>2:00 PM</strong>. To ensure a smooth and relaxed
+                        experience, we kindly ask our beloved guests to arrive <strong>15 to 30 minutes early</strong>.
+                    </p>
+                    <p style="margin-top: 15px; font-style: italic;">We also kindly ask that you stay with us until the
+                        very end—as every part of the celebration has been prepared with love.</p>
+                </div>
+
+                <!-- Guest List / Plus One -->
+                <div class="reminder-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="reminder-icon">💌</div>
+                    <h4>Our Guest List</h4>
+                    <p>Due to venue limitations and the size of our families, we have made the thoughtful decision to
+                        keep our guest list <strong>exclusive to immediate family and close friends.</strong></p>
+                    <p style="margin-top: 15px;">We truly appreciate your understanding and respect for our wishes as we
+                        celebrate this intimate milestone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. THE DAY'S EVENTS (FIXED: MATCHES TIMELINE DESIGN) -->
+    <!-- <section class="section-dark forest-bg">
+        <div class="container center">
+            <h2 class="serif-title gold" data-aos="fade-down">🕰️ Timeline of the Day</h2>
+            <div class="timeline-wrapper">
+                <ul class="enchanted-list">
+                    <li data-aos="fade-up">
+                        <span class="list-time">1:30 PM</span>
+                        <span class="list-event">Vows & I Do's</span>
+                    </li>
+                    <li data-aos="fade-up" data-aos-delay="100">
+                        <span class="list-time">3:30 PM</span>
+                        <span class="list-event">Pica-Pica</span>
+                    </li>
+                    <li data-aos="fade-up" data-aos-delay="200">
+                        <span class="list-time">4:00 PM</span>
+                        <span class="list-event">Program</span>
+                    </li>
+                    <li data-aos="fade-up" data-aos-delay="300">
+                        <span class="list-time">6:00 PM</span>
+                        <span class="list-event">Dinner</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- 4. THE DAY'S EVENTS (ENHANCED MAGICAL TIMELINE) -->
+    <section class="section-dark forest-bg">
+        <div class="container center">
+            <h2 class="serif-title gold" data-aos="fade-down">🕰️ The Wedding Timeline</h2>
+            <div class="leaf-divider" data-aos="fade-up">🌿✨🌿</div>
+
+            <div class="timeline-magical">
+                <!-- Event 1 -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-icon">💍</div>
+                    <div class="timeline-content">
+                        <span class="tm-time">1:30 PM</span>
+                        <h4 class="tm-title">The Solemn Vows</h4>
+                        <p class="tm-desc">The moment we say "I Do" before God and our loved ones.</p>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-icon">🥂</div>
+                    <div class="timeline-content">
+                        <span class="tm-time">3:30 PM</span>
+                        <h4 class="tm-title">Pica-Pica & Cocktails</h4>
+                        <p class="tm-desc">Enjoy light refreshments while the sun begins to set.</p>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-icon">✨</div>
+                    <div class="timeline-content">
+                        <span class="tm-time">4:00 PM</span>
+                        <h4 class="tm-title">Grand Program</h4>
+                        <p class="tm-desc">Celebrating our journey with laughter, music, and traditions.</p>
+                    </div>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="timeline-icon">🍽️</div>
+                    <div class="timeline-content">
+                        <span class="tm-time">6:00 PM</span>
+                        <h4 class="tm-title">Grand Wedding Dinner</h4>
+                        <p class="tm-desc">A feast prepared with love to conclude our magical day.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. THE ENTOURAGE -->
+    <!-- <section class="section-enchanted-light">
+        <div class="container center">
+            <h2 class="serif-title gold">👑 The Entourage</h2>
+
+            <div class="parents-grid">
+                <div class="role-card" data-aos="fade-up">
+                    <span class="label-badge">Parents of the Bride</span>
+                    <p>Mrs. Ma. Raquel R. Navarro</p>
+                    <p>Mr. James L. Navarro</p>
+                </div>
+                <div class="role-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="label-badge">Parents of the Groom</span>
+                    <p>Mrs. Raquel Aquiles B. Ruiz</p>
+                    <p>Mr. Victorino A. Ruiz</p>
+                </div>
+            </div>
+
+
+            <div class="sponsors-wrapper-enchanted" data-aos="fade-up">
+                <h3 class="script-h3 gold">✨ Principal Sponsors</h3>
+                <p class="italic-sub">To stand as witness as we exchange our vows</p>
+                <div class="sponsors-cols">
+                    <ul>
+                        <li>Mr. Rafael A. Ruiz & Mrs. Anecita A. Ruiz</li>
+                        <li>Mr. Allan G. Saycon & Mrs. Marcelita R. Saycon</li>
+                        <li>Mr. Marez C. Ramirez & Mrs. Mary Margaret T. Ramirez</li>
+                        <li>Mr. Severo C. Ramirez & Mrs. Felda P. Ramirez</li>
+                        <li>Mr. Ronie A. Ferrater & Mrs. Catherine R. Ferrater</li>
+                        <li>Mr. Jose Manuel F. Garcia & Mrs. Marissa R. Garcia</li>
+                        <li>Mr. Alejandro R. Batapa & Mrs. Lucelita A. Batapa</li>
+                        <li>Mr. Orlando P. Pangilinan & Mrs. Nita N. Pangilinan</li>
+                        <li>Mr. Allan Zablan & Mrs. Carina N. Zablan</li>
+                        <li>Mr. Edilberto A. Ruiz & Mrs. Elma J. Ruiz</li>
+                        <li>Mr. Randy V. Ruiz & Mrs. Jerissa T. Ruiz</li>
+                    </ul>
+                    <ul>
+                        <li>Mr. Marlon G. Torres & Mrs. Ma. Fatima L. Torres</li>
+                        <li>Mr. Francisco C. Banlaygas & Mrs. Beatriz V. Banlaygas</li>
+                        <li>Hon. Lloyd Ian F. Aniñon & Mrs. Helen Niña R. Aniñon</li>
+                        <li>Mr. Rey G. Cabiles & Mrs. Recelina T. Cabiles</li>
+                        <li>Mr. Loreto V. Maraña & Mrs. Ma. Corazon T. Maraña</li>
+                        <li>Mr. Felix C. Torres & Mrs. Victoria M. Torres</li>
+                        <li>Mr. Larken Rodriguez & Mrs. Josephine L. Rodriguez</li>
+                        <li>Mr. Judelito P. Sedigo & Mrs. Alicia T. Sedigo</li>
+                        <li>Mr. Macedonio D. Bendijo & Mrs. Rosemarie M. Bendijo</li>
+                        <li>Mr. Miguel J. Aguilar Jr. & Mrs. Susana V. Aguilar</li>
+                        <li>Mr. Jeremias G. Labe & Mrs. Macelinda P. Labe</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="parents-grid" style="margin-top: 40px;">
+                <div class="role-card" data-aos="zoom-in">
+                    <span class="label-badge">Best Man</span>
+                    <p>Richmund Baquiran</p>
+                </div>
+                <div class="role-card" data-aos="zoom-in" data-aos-delay="100">
+                    <span class="label-badge">Maid of Honor</span>
+                    <p>Shiela Mae R. Navarro</p>
+                </div>
+            </div>
+
+            <div class="dashed-border-box" data-aos="zoom-in">
+                <h3 class="script-h3 gold">To Assist Our Needs</h3>
+                <div class="secondary-grid">
+                    <div><strong>Veil:</strong> Mr. Jan Paul B. Ruiz & Mrs. Khendy P. Ruiz</div>
+                    <div><strong>Candle:</strong> Mr. John Henry R. Navarro & Atty. Mary Louise T. Ramirez</div>
+                    <div><strong>Cord:</strong> Mr. Vicente Allan Piñero & Mrs. Justine Joy A. Piñero</div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- 5. THE ENTOURAGE (CEREMONIAL DESIGN) -->
+    <section class="section-enchanted-light section-entourage">
+        <div class="container center">
+            <h2 class="serif-title gold" data-aos="fade-up">👑 The Wedding Entourage</h2>
+            <div class="leaf-divider" data-aos="fade-up">🌿✨🌿</div>
+
+            <!-- PARENTS SECTION -->
+            <div class="parents-container" data-aos="fade-up">
+                <div class="entourage-card card-light">
+                    <span class="script-role">Parents of the Bride</span>
+                    <p class="name-highlight">Mr. James L. Navarro</p>
+                    <p class="name-highlight">Mrs. Ma. Raquel R. Navarro</p>
+                </div>
+                <div class="entourage-card card-light">
+                    <span class="script-role">Parents of the Groom</span>
+                    <p class="name-highlight">Mr. Victorino A. Ruiz</p>
+                    <p class="name-highlight">Mrs. Raquel Aquiles B. Ruiz</p>
+                </div>
+            </div>
+
+            <!-- PRINCIPAL SPONSORS -->
+            <div class="sponsors-grand-container" data-aos="fade-up">
+                <div class="sponsors-border-overlay"></div>
+                <h3 class="script-h3 gold">Principal Sponsors</h3>
+                <p class="italic-sub">To guide us as we embark on our new journey together</p>
+
+                <div class="sponsors-directory">
+                    <ul>
+                        <li>Mr. Rafael A. Ruiz & Mrs. Anecita A. Ruiz</li>
+                        <li>Mr. Allan G. Saycon & Mrs. Marcelita R. Saycon</li>
+                        <li>Mr. Marez C. Ramirez & Mrs. Mary Margaret T. Ramirez</li>
+                        <li>Mr. Severo C. Ramirez & Mrs. Felda P. Ramirez</li>
+                        <li>Mr. Ronie A. Ferrater & Mrs. Catherine R. Ferrater</li>
+                        <li>Mr. Jose Manuel F. Garcia & Mrs. Marissa R. Garcia</li>
+                        <li>Mr. Alejandro R. Batapa & Mrs. Lucelita A. Batapa</li>
+                        <li>Mr. Orlando P. Pangilinan & Mrs. Nita N. Pangilinan</li>
+                        <li>Mr. Allan Zablan & Mrs. Carina N. Zablan</li>
+                        <li>Mr. Edilberto A. Ruiz & Mrs. Elma J. Ruiz</li>
+                        <li>Mr. Randy V. Ruiz & Mrs. Jerissa T. Ruiz</li>
+                    </ul>
+                    <ul>
+                        <li>Mr. Marlon G. Torres & Mrs. Ma. Fatima L. Torres</li>
+                        <li>Mr. Francisco C. Banlaygas & Mrs. Beatriz V. Banlaygas</li>
+                        <li>Hon. Lloyd Ian F. Aniñon & Mrs. Helen Niña R. Aniñon</li>
+                        <li>Mr. Rey G. Cabiles & Mrs. Recelina T. Cabiles</li>
+                        <li>Mr. Loreto V. Maraña & Mrs. Ma. Corazon T. Maraña</li>
+                        <li>Mr. Felix C. Torres & Mrs. Victoria M. Torres</li>
+                        <li>Mr. Larken Rodriguez & Mrs. Josephine L. Rodriguez</li>
+                        <li>Mr. Judelito P. Sedigo & Mrs. Alicia T. Sedigo</li>
+                        <li>Mr. Macedonio D. Bendijo & Mrs. Rosemarie M. Bendijo</li>
+                        <li>Mr. Miguel J. Aguilar Jr. & Mrs. Susana V. Aguilar</li>
+                        <li>Mr. Jeremias G. Labe & Mrs. Macelinda P. Labe</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- BEST MAN & MAID OF HONOR -->
+            <div class="core-party-grid">
+                <div class="entourage-card card-accent" data-aos="zoom-in">
+                    <span class="label-badge">Best Man</span>
+                    <p class="name-primary">Richmund Baquiran</p>
+                </div>
+                <div class="entourage-card card-accent" data-aos="zoom-in" data-aos-delay="100">
+                    <span class="label-badge">Maid of Honor</span>
+                    <p class="name-primary">Shiela Mae R. Navarro</p>
+                </div>
+            </div>
+
+            <!-- CEREMONIAL ASSISTANTS -->
+            <div class="ceremonial-box" data-aos="fade-up">
+                <h3 class="script-h3 gold">To Assist Our Needs</h3>
+                <div class="ceremonial-grid">
+                    <div class="ceremonial-item">
+                        <span class="c-icon">🕯️</span>
+                        <label>Candle</label>
+                        <p>Mr. John Henry R. Navarro</p>
+                        <p>Atty. Mary Louise T. Ramirez</p>
+                    </div>
+                    <div class="ceremonial-item">
+                        <span class="c-icon">🧤</span>
+                        <label>Veil</label>
+                        <p>Mr. Jan Paul B. Ruiz</p>
+                        <p>Mrs. Khendy P. Ruiz</p>
+                    </div>
+                    <div class="ceremonial-item">
+                        <span class="c-icon">🎀</span>
+                        <label>Cord</label>
+                        <p>Mr. Vicente Allan Piñero</p>
+                        <p>Mrs. Justine Joy A. Piñero</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. THE SACRED GROUND (FIXED: NON-STRETCHED IMAGES) -->
+    <section class="section-dark">
+        <div class="container center">
+            <h2 class="serif-title gold" data-aos="fade-up">🌲 The Sacred Ground</h2>
+            <div class="venue-flex-grid">
+                <div class="venue-card" data-aos="fade-right">
+                    <div class="venue-img-container">
+                        <img src="church.png" alt="Church"
+                            onerror="this.src='https://images.unsplash.com/photo-1548625361-195feeb1541b?q=80&w=800'">
+                    </div>
+                    <div class="venue-details">
+                        <h4>The Ceremony</h4>
+                        <p>Our Lady of the Pillar Parish</p>
+                        <a href="https://maps.google.com" target="_blank" class="btn-border-gold">OPEN MAPS</a>
+                    </div>
+                </div>
+                <div class="venue-card" data-aos="fade-left">
+                    <div class="venue-img-container">
+                        <img src="reception.png" alt="Reception"
+                            onerror="this.src='https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=800'">
+                    </div>
+                    <div class="venue-details">
+                        <h4>The Reception</h4>
+                        <p>Jardin de Esencia Place</p>
+                        <a href="https://maps.google.com" target="_blank" class="btn-border-gold">OPEN MAPS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 7. GIFT GUIDE (MINIMALIST LUXURY) -->
+    <section class="section-dark center">
+        <div class="container">
+            <div class="gift-header" data-aos="fade-up">
+                <h2 class="serif-title gold">🎁 Gift Guide</h2>
+                <div class="leaf-divider">🌿✨🌿</div>
+                <p class="gift-quote">
+                    "Your love and presence on our wedding day are the greatest gifts of all.
+                    However, should you wish to honor us with a gift, a contribution to our
+                    new beginning would be most gratefully received."
+                </p>
+                <p class="cash-note">Cash gifts are preferred as we begin our journey together.</p>
+            </div>
+
+            <div class="qr-container-row">
+                <!-- GCash Card -->
+                <div class="qr-card-luxury" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="qr-branding">
+                        <img src="gcash2.png" alt="GCash Logo" class="app-logo">
+                    </div>
+                    <div class="qr-frame">
+                        <img src="gcash.png" alt="GCash QR Code">
+                    </div>
+                    <div class="qr-footer-line"></div>
+                </div>
+
+                <!-- Maya Card -->
+                <div class="qr-card-luxury" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="qr-branding">
+                        <img src="maya2.png" alt="Maya Logo" class="app-logo">
+                    </div>
+                    <div class="qr-frame">
+                        <img src="maya.png" alt="Maya QR Code">
+                    </div>
+                    <div class="qr-footer-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. GALLERY SECTION -->
+    <section class="section-enchanted-light center">
+        <div class="container">
+            <h2 class="serif-title gold" data-aos="fade-up">🖼️ Moments Woven in Magic</h2>
+            <div class="leaf-divider">🌿✨🌿</div>
+
+
+            <!-- FEATURED VIDEO CENTERPIECE -->
+            <div class="featured-video-wrapper" data-aos="zoom-in">
+                <div class="video-frame-accent"></div>
+                <video controls muted playsinline class="main-wedding-video">
+                    <source src="vid1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="photo-frame"></div>
+            </div>
+
+            <div class="gallery-grid" id="gallery-container">
+                <!-- VISIBLE IMAGES (1-4) -->
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800" alt="Memory 1">
+                    <div class="photo-frame"></div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800" alt="Memory 2">
+                    <div class="photo-frame"></div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800" alt="Memory 3">
+                    <div class="photo-frame"></div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=800" alt="Memory 4">
+                    <div class="photo-frame"></div>
+                </div>
+
+                <!-- HIDDEN IMAGES (5-12) - These use live URLs to ensure they load -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?q=80&w=800" alt="Memory 5">
+                    <div class="photo-frame"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?q=80&w=800" alt="Memory 6">
+                    <div class="photo-frame"></div>
+                </div>
+                <div class="gallery-item hidden-item">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800" alt="Memory 7">
+                    <div class="photo-frame"></div>
+                </div>
+                <div class="gallery-item hidden-item">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800" alt="Memory 8">
+                    <div class="photo-frame"></div>
+                </div>
+                <div class="gallery-item hidden-item">
+                    <img src="https://images.unsplash.com/photo-1475721042966-f829c9b42aab?q=80&w=800" alt="Memory 9">
+                    <div class="photo-frame"></div>
+                </div>
+                <div class="gallery-item hidden-item">
+                    <img src="https://images.unsplash.com/photo-1510076857177-7470076d4098?q=80&w=800" alt="Memory 10">
+                    <div class="photo-frame"></div>
+                </div>
+                <div class="gallery-item hidden-item">
+                    <img src="https://images.unsplash.com/photo-1510076857177-7470076d4098?q=80&w=800" alt="Memory 11">
+                    <div class="photo-frame"></div>
+                </div>
+                <div class="gallery-item hidden-item">
+                    <img src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?q=80&w=800" alt="Memory 12">
+                    <div class="photo-frame"></div>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px;">
+                <button id="show-more-btn" class="btn-border-gold">SHOW MORE IMAGES</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. RSVP (ENHANCED FORM) -->
+    <!-- <section id="rsvp" class="section-dark">
+        <div class="container center">
+            <div class="rsvp-card-enchanted" data-aos="zoom-in">
+                <h2 class="serif-title gold">📩 Kindly Respond</h2>
+                <p>✨ Will you join our enchanted day? ✨</p>
+                <form id="rsvpForm" class="rsvp-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="" disabled selected>Will you attend?</option>
+                            <option value="yes">Joyfully Accepts</option>
+                            <option value="no">Regretfully Declines</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" placeholder="Number of Guests (Max 2)" min="1" max="2">
+                    </div>
+                    <button type="submit" class="btn-solid-gold">SUBMIT RSVP</button>
+                </form>
+                <div id="rsvpSuccess" style="display:none; margin-top: 30px;">
+                    <h3 class="script-h3 gold">Thank You!</h3>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- 8. RSVP (ENHANCED WITH INTRO TEXT) -->
+    <section id="rsvp" class="section-dark">
+        <div class="container center">
+            <div class="rsvp-card-enchanted" data-aos="zoom-in">
+                <h2 class="serif-title gold">📩 Kindly Respond</h2>
+
+                <!-- Your New Text Block -->
+                <div class="rsvp-message-box">
+                    <p class="rsvp-intro">
+                        We’d be delighted to have you! Our celebration wouldn’t be the same without you.
+                        Kindly let us know if you can join us by clicking the RSVP link below or by completing the form.
+                    </p>
+                </div>
+
+
+                <form id="rsvpForm" class="rsvp-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="" disabled selected>Will you attend?</option>
+                            <option value="yes">Joyfully Accepts</option>
+                            <option value="no">Regretfully Declines</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" placeholder="Number of Guests (Max 2)" min="1" max="2">
+                    </div>
+                    <button type="submit" class="btn-solid-gold">SUBMIT RSVP</button>
+                </form>
+
+                <div id="rsvpSuccess" style="display:none; margin-top: 30px;">
+                    <h3 class="script-h3 gold">Thank You!</h3>
+                    <p>We've received your response. ✨</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 10. COMPACT LUXURY FOOTER -->
+    <footer class="footer">
+        <div class="container center">
+
+            <!-- Small Monogram & Divider -->
+            <div class="footer-top" data-aos="fade-up">
+                <div class="footer-monogram-small">
+                    <span>R</span><span class="m-amp">&</span><span>M</span>
+                </div>
+                <div class="mini-divider"></div>
+            </div>
+
+            <div class="footer-main" data-aos="fade-up">
+                <h1 class="footer-names-compact">Ralph & Maurine</h1>
+
+                <div class="footer-info-row">
+                    <span class="f-date">MAY 02, 2026</span>
+                    <span class="f-sep">|</span>
+                    <span class="f-tag">With love, under the stars ✨</span>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Crafted with Magic</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+
+    <!-- QUICK NAVIGATION BUTTONS -->
+    <div class="quick-nav">
+        <!-- Back to Top Button (Hidden by default) -->
+        <button id="backToTop" class="nav-fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <span class="fab-icon">↑</span>
+        </button>
+        <!-- RSVP Quick Link -->
+        <a href="#rsvp" class="rsvp-fab">
+            <span class="fab-text">RSVP</span>
+            <span class="fab-icon">📩</span>
+        </a>
+    </div>
+</body>
+
+</html>
