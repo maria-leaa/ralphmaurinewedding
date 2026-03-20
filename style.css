@@ -310,6 +310,7 @@ body {
 
 /* --- ELEGANT HERO OVERHAUL --- */
 .hero {
+    padding-top: 100px; 
     height: 100vh;
     display: flex;
     align-items: center;
@@ -1657,12 +1658,14 @@ footer {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 2000;
-    padding: 20px 0;
+    z-index: 1000;
+    padding: 8px 0;
     transition: 0.5s;
     background: rgba(26, 15, 13, 0.0);
+    /* background: rgba(20, 20, 20, 0.8); */
     /* Transparent initially */
     display: none;
+    backdrop-filter: blur(10px);
     /* Hidden until invitation is opened */
 }
 
@@ -1670,7 +1673,7 @@ footer {
 .navbar.scrolled {
     background: rgba(26, 15, 13, 0.95);
     backdrop-filter: blur(10px);
-    padding: 15px 0;
+    padding: 8px 0;
     border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
 
@@ -1680,28 +1683,28 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 30px;
+    padding: 0 40px;
 }
 
 .nav-logo {
     font-family: 'Cinzel', serif;
     color: var(--gold);
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     letter-spacing: 5px;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 25px;
 }
 
 .nav-item {
     text-decoration: none;
     color: var(--cream);
     font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     letter-spacing: 2px;
     transition: 0.3s;
     opacity: 0.8;
@@ -2291,5 +2294,30 @@ footer {
         letter-spacing: 3px;
         width: 90%; /* Makes button easier to tap on mobile */
         max-width: 300px;
+    }
+}
+
+/* Removes bullets from the Groomsmen and Bridesmaids lists */
+.simple-list {
+    list-style-type: none; /* This removes the bullets */
+    padding: 0;            /* This removes the default indentation */
+    margin: 0;
+    text-align: center;    /* Keeps the names centered */
+}
+
+.simple-list li {
+    margin-bottom: 8px;    /* Adds a little space between names */
+    font-family: 'Montserrat', sans-serif; /* Matching your theme font */
+    color: var(--text-dark); 
+}
+
+@media (min-width: 1024px) {
+    .nav-links {
+        gap: 1.5rem; /* Space between "Home", "Our Story", etc. */
+    }
+    
+    .nav-item {
+        font-size: 0.8rem; /* Make text slightly smaller to fit everything */
+        letter-spacing: 1px;
     }
 }
