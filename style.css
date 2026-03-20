@@ -310,7 +310,7 @@ body {
 
 /* --- ELEGANT HERO OVERHAUL --- */
 .hero {
-    padding-top: 100px; 
+    padding-top: 100px;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -1069,8 +1069,15 @@ body {
 }
 
 @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .form-label-note {
@@ -1081,6 +1088,7 @@ body {
     font-style: italic;
     opacity: 0.8;
 }
+
 /* Floating Music Sphere */
 .music-sphere {
     position: fixed;
@@ -1733,10 +1741,15 @@ footer {
 /* Update your existing @media query in style.css */
 @media (max-width: 900px) {
     .navbar {
-        display: block !important;
+        display: none;
         /* Force it to show on small screens */
         background: rgba(26, 15, 13, 0.9);
         /* Give it a background so you can see it */
+    }
+
+    .navbar.active-nav {
+        display: block !important;
+        /* This will be triggered by JS */
     }
 
     .hamburger {
@@ -1935,7 +1948,7 @@ footer {
     font-size: 0.8rem !important;
     color: var(--gold) !important;
     margin-top: 15px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 10px;
 }
 
@@ -1959,8 +1972,14 @@ footer {
     .rsvp-card-enchanted {
         padding: 40px 20px;
     }
-    .rsvp-welcome { font-size: 1rem; }
-    .seating-note-container { padding: 15px; }
+
+    .rsvp-welcome {
+        font-size: 1rem;
+    }
+
+    .seating-note-container {
+        padding: 15px;
+    }
 }
 
 
@@ -2066,7 +2085,8 @@ footer {
         padding-top: 120px;
         /* Pushes the 'You are invited' text down */
         display: flex;
-        align-items: flex-start;
+        /* align-items: flex-start; */
+        align-items: center;
         /* Shifts content to the top so it doesn't get cut off by bottom buttons */
         height: auto;
         min-height: 100vh;
@@ -2105,56 +2125,72 @@ footer {
 
 /* --- COMPREHENSIVE MOBILE FIXES --- */
 @media (max-width: 768px) {
-    
+
     /* 1. Global Section Spacing - Makes the page feel more compact */
-    .section-enchanted-light, 
+    .section-enchanted-light,
     .section-dark {
-        padding: 60px 0; /* Cut the "dead space" in half */
+        padding: 60px 0;
+        /* Cut the "dead space" in half */
     }
 
     /* 2. Fix the Hero Section so it doesn't cut off */
     .hero {
         height: auto;
         min-height: 100vh;
-        padding: 100px 0 60px; /* Gives room for the navbar */
+        padding: 100px 0 60px;
+        /* Gives room for the navbar */
     }
+
     .hero-names-elegant {
-        font-size: 3.5rem; /* Stop the names from overflowing the edges */
+        font-size: 3.5rem;
+        /* Stop the names from overflowing the edges */
         line-height: 1.1;
     }
 
     /* 3. Fix Our Story Layout */
     .story-wrapper {
-        gap: 30px; /* Reduce the huge gap between photo and text */
+        gap: 30px;
+        /* Reduce the huge gap between photo and text */
     }
+
     .story-text-container {
         padding: 0 10px;
     }
 
     /* 4. Fix Entourage & Sponsors (The horizontal scroll fix) */
-    .sponsors-directory, 
-    .venue-flex-grid, 
+    .sponsors-directory,
+    .venue-flex-grid,
     .reminders-grid {
-        grid-template-columns: 1fr !important; /* Forces one single column */
+        grid-template-columns: 1fr !important;
+        /* Forces one single column */
         gap: 20px;
     }
+
     .sponsors-grand-container {
-        padding: 30px 15px; /* Shrink the huge box */
+        padding: 30px 15px;
+        /* Shrink the huge box */
     }
+
     .sponsors-directory ul {
         margin-bottom: 0;
     }
 
     /* 5. Fix Timeline Squishing */
     .timeline-magical {
-        padding-left: 30px; /* Give the text more room */
+        padding-left: 30px;
+        /* Give the text more room */
     }
+
     .timeline-magical::before {
-        left: 10px; /* Move the vertical line to the edge */
+        left: 10px;
+        /* Move the vertical line to the edge */
     }
+
     .timeline-item::before {
-        left: -25px; /* Re-align the dots */
+        left: -25px;
+        /* Re-align the dots */
     }
+
     .tm-title {
         font-size: 1.1rem;
     }
@@ -2163,9 +2199,12 @@ footer {
     .qr-container-row {
         gap: 20px;
     }
+
     .qr-card-luxury {
-        width: 100%; /* Make QR cards full width of their container */
-        max-width: 280px; /* But don't let them get too giant */
+        width: 100%;
+        /* Make QR cards full width of their container */
+        max-width: 280px;
+        /* But don't let them get too giant */
     }
 
     /* 7. Navigation Text Fix */
@@ -2178,7 +2217,8 @@ footer {
 @media (max-width: 768px) {
 
     /* 1. Force the Hero to be full width (removes the sidebars) */
-    html, body {
+    html,
+    body {
         overflow-x: hidden;
         width: 100%;
         margin: 0;
@@ -2189,7 +2229,8 @@ footer {
         width: 100vw !important;
         left: 0;
         margin: 0;
-        background-attachment: scroll !important; /* STOPS THE "FLOATING" GLITCH */
+        background-attachment: scroll !important;
+        /* STOPS THE "FLOATING" GLITCH */
         background-position: center top !important;
         background-size: cover !important;
         height: auto;
@@ -2197,12 +2238,14 @@ footer {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding-top: 80px; /* Space for the navbar */
+        padding-top: 80px;
+        /* Space for the navbar */
     }
 
     /* 2. Fix the names so they don't cut off */
     .hero-names-elegant {
-        font-size: 2.8rem !important; /* Smaller so "John Ralph" fits */
+        font-size: 2.8rem !important;
+        /* Smaller so "John Ralph" fits */
         line-height: 1.2;
         width: 100%;
         display: block;
@@ -2210,13 +2253,15 @@ footer {
     }
 
     .hero-names-container {
-        padding: 0 15px; /* Keeps text from touching the edge of the screen */
+        padding: 0 15px;
+        /* Keeps text from touching the edge of the screen */
     }
 
     /* 3. Fix the Countdown numbers */
     .countdown-minimal {
         gap: 10px;
-        transform: scale(0.9); /* Shrinks it slightly to fit the screen */
+        transform: scale(0.9);
+        /* Shrinks it slightly to fit the screen */
     }
 
     .cd-item-elegant span {
@@ -2250,17 +2295,19 @@ footer {
 
 /* --- ENTRANCE OVERLAY MOBILE REPAIR --- */
 @media (max-width: 600px) {
-    
+
     /* 1. Fix the container padding */
     .entrance-content {
         width: 100%;
-        padding: 0 20px; /* Keeps text away from the very edge */
+        padding: 0 20px;
+        /* Keeps text away from the very edge */
         box-sizing: border-box;
     }
 
     /* 2. Shrink the main names so 'John Ralph' fits */
     .names-elegant {
-        font-size: 2.8rem !important; /* Reduced from 4.5rem */
+        font-size: 2.8rem !important;
+        /* Reduced from 4.5rem */
         line-height: 1.1;
         margin: 10px 0;
         display: block;
@@ -2270,7 +2317,8 @@ footer {
 
     /* 3. Handle the ampersand better */
     .names-elegant .ampersand {
-        display: block; /* Puts & on its own line to save horizontal space */
+        display: block;
+        /* Puts & on its own line to save horizontal space */
         font-size: 1.5rem;
         margin: 5px 0;
     }
@@ -2292,32 +2340,46 @@ footer {
         padding: 12px 25px;
         font-size: 0.7rem;
         letter-spacing: 3px;
-        width: 90%; /* Makes button easier to tap on mobile */
+        width: 90%;
+        /* Makes button easier to tap on mobile */
         max-width: 300px;
     }
 }
 
 /* Removes bullets from the Groomsmen and Bridesmaids lists */
 .simple-list {
-    list-style-type: none; /* This removes the bullets */
-    padding: 0;            /* This removes the default indentation */
+    list-style-type: none;
+    /* This removes the bullets */
+    padding: 0;
+    /* This removes the default indentation */
     margin: 0;
-    text-align: center;    /* Keeps the names centered */
+    text-align: center;
+    /* Keeps the names centered */
 }
 
 .simple-list li {
-    margin-bottom: 8px;    /* Adds a little space between names */
-    font-family: 'Montserrat', sans-serif; /* Matching your theme font */
-    color: var(--text-dark); 
+    margin-bottom: 8px;
+    /* Adds a little space between names */
+    font-family: 'Montserrat', sans-serif;
+    /* Matching your theme font */
+    color: var(--text-dark);
 }
 
 @media (min-width: 1024px) {
     .nav-links {
-        gap: 1.5rem; /* Space between "Home", "Our Story", etc. */
+        gap: 1.5rem;
+        /* Space between "Home", "Our Story", etc. */
     }
-    
+
     .nav-item {
-        font-size: 0.8rem; /* Make text slightly smaller to fit everything */
+        font-size: 0.8rem;
+        /* Make text slightly smaller to fit everything */
         letter-spacing: 1px;
     }
+}
+
+#entrance-overlay,
+.hero {
+    height: 100dvh;
+    /* Use dvh instead of vh */
 }
