@@ -397,20 +397,27 @@ body {
     background: white;
     border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
     margin-bottom: 20px;
     transition: 0.4s;
 }
 
-.card-light { border-bottom: 3px solid var(--gold); }
-.card-accent { background: #fdfbf9; border: 1px dashed var(--gold); }
+.card-light {
+    border-bottom: 3px solid var(--gold);
+}
+
+.card-accent {
+    background: #fdfbf9;
+    border: 1px dashed var(--gold);
+}
 
 .entourage-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 50px rgba(62, 39, 35, 0.1);
 }
 
-.parents-container, .core-party-grid {
+.parents-container,
+.core-party-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
@@ -517,6 +524,7 @@ body {
     .sponsors-grand-container {
         padding: 40px 20px;
     }
+
     .sponsors-directory {
         grid-template-columns: 1fr;
     }
@@ -654,10 +662,13 @@ body {
 /* --- OUR STORY: SIDE-BY-SIDE LAYOUT --- */
 .story-wrapper {
     display: flex;
-    flex-direction: row; /* Forces side-by-side */
-    align-items: center; /* Centers items vertically */
+    flex-direction: row;
+    /* Forces side-by-side */
+    align-items: center;
+    /* Centers items vertically */
     justify-content: center;
-    gap: 80px; /* Space between image and text */
+    gap: 80px;
+    /* Space between image and text */
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
@@ -666,7 +677,8 @@ body {
 /* LEFT SIDE: Image Container */
 .story-image-container {
     flex: 1;
-    max-width: 380px; /* Limits image size */
+    max-width: 380px;
+    /* Limits image size */
     position: relative;
 }
 
@@ -674,8 +686,9 @@ body {
     position: relative;
     background: white;
     padding: 12px 12px 50px 12px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    transform: rotate(-3deg); /* Keeps the elegant tilt */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    transform: rotate(-3deg);
+    /* Keeps the elegant tilt */
     transition: 0.5s ease;
 }
 
@@ -687,8 +700,10 @@ body {
 
 /* RIGHT SIDE: Text Container */
 .story-text-container {
-    flex: 1.5; /* Gives more room to the text */
-    text-align: left; /* Aligns text to the left */
+    flex: 1.5;
+    /* Gives more room to the text */
+    text-align: left;
+    /* Aligns text to the left */
 }
 
 /* Typography Adjustments */
@@ -716,19 +731,22 @@ body {
 /* MOBILE RESPONSIVENESS: Stacks them on small screens */
 @media (max-width: 900px) {
     .story-wrapper {
-        flex-direction: column; /* Stacks image on top of text on phones */
+        flex-direction: column;
+        /* Stacks image on top of text on phones */
         text-align: center;
         gap: 40px;
     }
 
     .story-text-container {
-        text-align: center; /* Centers text on mobile */
+        text-align: center;
+        /* Centers text on mobile */
     }
 
     .story-image-container {
-        max-width: 300px; /* Makes image slightly smaller on mobile */
+        max-width: 300px;
+        /* Makes image slightly smaller on mobile */
     }
-    
+
     .leaf-divider {
         text-align: center !important;
     }
@@ -979,7 +997,8 @@ body {
 
 .form-separator span {
     position: relative;
-    background: #251614; /* Match card background color */
+    background: #251614;
+    /* Match card background color */
     padding: 0 15px;
     font-family: 'Cinzel', serif;
     font-size: 0.7rem;
@@ -997,11 +1016,70 @@ body {
     .rsvp-card-enchanted {
         padding: 40px 20px;
     }
+
     .rsvp-intro {
         font-size: 0.95rem;
     }
 }
 
+/* --- RSVP FORM ENHANCEMENTS --- */
+.form-label-note {
+    font-size: 0.75rem;
+    text-align: left;
+    color: var(--gold);
+    margin-bottom: 5px;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+    accent-color: var(--gold);
+    cursor: pointer;
+}
+
+.checkbox-wrapper label {
+    font-size: 0.85rem;
+    color: var(--cream);
+    opacity: 0.8;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+/* Make selects look consistent in all browsers */
+.form-group select option {
+    background-color: var(--espresso);
+    color: white;
+}
+
+
+#extra-fields {
+    animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-label-note {
+    font-size: 0.75rem;
+    color: var(--gold);
+    text-align: left;
+    margin-bottom: 5px;
+    font-style: italic;
+    opacity: 0.8;
+}
 /* Floating Music Sphere */
 .music-sphere {
     position: fixed;
@@ -1103,7 +1181,8 @@ footer {
 
 /* --- GALLERY SHOW MORE LOGIC --- */
 .hidden-item {
-    display: none; /* Hide by default */
+    display: none;
+    /* Hide by default */
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.6s ease-out;
@@ -1138,7 +1217,8 @@ footer {
     background: #ffffff;
     padding: 45px 35px;
     border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 2px; /* Sharp luxury edges */
+    border-radius: 2px;
+    /* Sharp luxury edges */
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
     transition: all 0.4s ease;
     position: relative;
@@ -1148,7 +1228,10 @@ footer {
 .reminder-card::after {
     content: '';
     position: absolute;
-    bottom: 0; left: 0; width: 100%; height: 3px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
     background: var(--gold);
     transform: scaleX(0);
     transition: 0.4s;
@@ -1184,17 +1267,20 @@ footer {
 }
 
 .reminder-card strong {
-    color: #a68931; /* Deep gold for readability on white */
+    color: #a68931;
+    /* Deep gold for readability on white */
 }
 
 
 /* --- FEATURED VIDEO STYLING --- */
 .featured-video-wrapper {
     position: relative;
-    max-width: 900px; /* Cinematic width */
+    max-width: 900px;
+    /* Cinematic width */
     margin: 0 auto 50px auto;
     background: #fff;
-    padding: 15px; /* Creates the white Polaroid border */
+    padding: 15px;
+    /* Creates the white Polaroid border */
     border: 1px solid rgba(212, 175, 55, 0.3);
     box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
 }
@@ -1202,9 +1288,11 @@ footer {
 .main-wedding-video {
     width: 100%;
     display: block;
-    aspect-ratio: 16 / 9; /* Cinematic Aspect Ratio */
+    aspect-ratio: 16 / 9;
+    /* Cinematic Aspect Ratio */
     object-fit: cover;
-    filter: sepia(0.2) contrast(1.05); /* Matching your photo filter */
+    filter: sepia(0.2) contrast(1.05);
+    /* Matching your photo filter */
     transition: 0.5s;
 }
 
@@ -1237,7 +1325,8 @@ footer {
     position: relative;
     max-width: 600px;
     margin: 60px auto 0;
-    padding-left: 50px; /* Space for the vertical line */
+    padding-left: 50px;
+    /* Space for the vertical line */
     text-align: left;
 }
 
@@ -1263,7 +1352,8 @@ footer {
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: -40px; /* Centers it on the line */
+    left: -40px;
+    /* Centers it on the line */
     top: 5px;
     width: 15px;
     height: 15px;
@@ -1276,7 +1366,8 @@ footer {
 
 .timeline-icon {
     position: absolute;
-    left: -80px; /* Moves icons far left */
+    left: -80px;
+    /* Moves icons far left */
     top: 0;
     font-size: 1.5rem;
     opacity: 0.8;
@@ -1308,9 +1399,9 @@ footer {
 
 /* Forest Background Subtle Polish */
 .forest-bg {
-    background: linear-gradient(rgba(26, 15, 13, 0.9), rgba(26, 15, 13, 0.9)), 
-                url('https://www.transparenttextures.com/patterns/dark-matter.png'), 
-                var(--espresso);
+    background: linear-gradient(rgba(26, 15, 13, 0.9), rgba(26, 15, 13, 0.9)),
+        url('https://www.transparenttextures.com/patterns/dark-matter.png'),
+        var(--espresso);
 }
 
 /* Mobile Adjustments */
@@ -1318,9 +1409,12 @@ footer {
     .timeline-magical {
         padding-left: 40px;
     }
+
     .timeline-icon {
-        display: none; /* Hide icons on very small screens to save space */
+        display: none;
+        /* Hide icons on very small screens to save space */
     }
+
     .tm-title {
         font-size: 1.2rem;
     }
@@ -1359,7 +1453,8 @@ footer {
     border: 1px solid rgba(212, 175, 55, 0.2);
     padding: 40px 30px;
     width: 260px;
-    border-radius: 4px; /* Matches your luxury button/card edges */
+    border-radius: 4px;
+    /* Matches your luxury button/card edges */
     backdrop-filter: blur(10px);
     transition: all 0.5s ease;
 }
@@ -1375,7 +1470,7 @@ footer {
     height: 22px;
     margin-bottom: 25px;
     /* This makes the logos white to match the elegant theme */
-    filter: brightness(0) invert(1); 
+    filter: brightness(0) invert(1);
     opacity: 0.7;
 }
 
@@ -1407,11 +1502,13 @@ footer {
     .qr-container-row {
         gap: 30px;
     }
+
     .qr-card-luxury {
         width: 240px;
         padding: 30px 20px;
     }
 }
+
 /* --- MOBILE OPTIMIZATION --- */
 @media (max-width: 768px) {
 
@@ -1466,7 +1563,8 @@ footer {
 
 /* --- COMPACT FOOTER STYLING --- */
 .footer {
-    padding: 60px 0 30px; /* Much smaller padding */
+    padding: 60px 0 30px;
+    /* Much smaller padding */
     background: #0c0706;
     border-top: 1px solid rgba(212, 175, 55, 0.1);
     position: relative;
@@ -1548,6 +1646,7 @@ footer {
         flex-direction: column;
         gap: 8px;
     }
+
     .f-sep {
         display: none;
     }
@@ -1561,8 +1660,10 @@ footer {
     z-index: 2000;
     padding: 20px 0;
     transition: 0.5s;
-    background: rgba(26, 15, 13, 0.0); /* Transparent initially */
-    display: none; /* Hidden until invitation is opened */
+    background: rgba(26, 15, 13, 0.0);
+    /* Transparent initially */
+    display: none;
+    /* Hidden until invitation is opened */
 }
 
 /* Navbar background when scrolling */
@@ -1629,13 +1730,15 @@ footer {
 /* Update your existing @media query in style.css */
 @media (max-width: 900px) {
     .navbar {
-        display: block !important; /* Force it to show on small screens */
-        background: rgba(26, 15, 13, 0.9); /* Give it a background so you can see it */
+        display: block !important;
+        /* Force it to show on small screens */
+        background: rgba(26, 15, 13, 0.9);
+        /* Give it a background so you can see it */
     }
-    
-    .hamburger { 
-        display: block !important; 
-        z-index: 2001; 
+
+    .hamburger {
+        display: block !important;
+        z-index: 2001;
     }
 
 
@@ -1643,12 +1746,23 @@ footer {
 
 /* MOBILE VIEW (900px and down) */
 @media (max-width: 900px) {
-    .hamburger { display: block; z-index: 2001; }
+    .hamburger {
+        display: block;
+        z-index: 2001;
+    }
 
     /* Transform hamburger to X */
-    .hamburger.active .bar:nth-child(2) { opacity: 0; }
-    .hamburger.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
 
     .nav-links {
         position: fixed;
@@ -1665,16 +1779,21 @@ footer {
         gap: 40px;
     }
 
-    .nav-links.active { left: 0; }
-    
-    .nav-item { font-size: 1.2rem; }
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-item {
+        font-size: 1.2rem;
+    }
 }
 
 /* --- QUICK NAVIGATION BUTTONS --- */
 .quick-nav {
     position: fixed;
     bottom: 30px;
-    left: 30px; /* Opposite side of the music sphere */
+    left: 30px;
+    /* Opposite side of the music sphere */
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -1682,7 +1801,8 @@ footer {
 }
 
 /* Base FAB Style */
-.nav-fab, .rsvp-fab {
+.nav-fab,
+.rsvp-fab {
     background: var(--espresso);
     border: 1px solid var(--gold);
     color: var(--gold);
@@ -1691,7 +1811,7 @@ footer {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.4s ease;
     text-decoration: none;
 }
@@ -1702,13 +1822,15 @@ footer {
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
-    display: none; /* Add this to completely remove it from the layout when hidden */
+    display: none;
+    /* Add this to completely remove it from the layout when hidden */
     transition: all 0.4s ease;
 }
 
 /* This is the class the JavaScript will add when you scroll down */
 #backToTop.show {
-    display: flex !important; /* Force it to show */
+    display: flex !important;
+    /* Force it to show */
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -1718,7 +1840,8 @@ footer {
 .nav-fab {
     width: 45px;
     height: 45px;
-    opacity: 0; /* Hidden initially */
+    opacity: 0;
+    /* Hidden initially */
     visibility: hidden;
     transform: translateY(20px);
 }
@@ -1743,11 +1866,169 @@ footer {
 }
 
 /* Hover Effects */
-.nav-fab:hover, .rsvp-fab:hover {
+.nav-fab:hover,
+.rsvp-fab:hover {
     background: var(--gold);
     color: var(--espresso);
     transform: scale(1.1);
     box-shadow: 0 0 20px var(--gold-glow);
+}
+
+
+/* --- RSVP INTRO STYLING --- */
+.rsvp-welcome {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    color: var(--cream);
+    opacity: 0.9;
+}
+
+.seating-note-container {
+    background: rgba(212, 175, 55, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.note-icon {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.note-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.note-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 10px auto 15px;
+    opacity: 0.5;
+}
+
+.seating-note-container p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: var(--cream);
+    opacity: 0.85;
+}
+
+.note-disclaimer {
+    font-style: italic;
+    font-size: 0.8rem !important;
+    color: var(--gold) !important;
+    margin-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 10px;
+}
+
+.rsvp-cta {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    color: var(--cream);
+    text-transform: uppercase;
+}
+
+/* Ensure card handles the extra height */
+.rsvp-card-enchanted {
+    max-width: 650px;
+    padding: 60px 40px;
+}
+
+@media (max-width: 600px) {
+    .rsvp-card-enchanted {
+        padding: 40px 20px;
+    }
+    .rsvp-welcome { font-size: 1rem; }
+    .seating-note-container { padding: 15px; }
+}
+
+
+/* --- DRESS CODE STYLING --- */
+.attire-intro {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.attire-card-simple {
+    background: #ffffff;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 25px;
+    display: inline-block;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.attire-card-simple h4 {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 3px;
+    color: var(--brown-mid);
+    margin-bottom: 10px;
+}
+
+.attire-card-simple p {
+    font-size: 1rem;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.palette-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    color: var(--brown-mid);
+}
+
+.palette-circles {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.color-dot {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.color-dot:hover {
+    transform: scale(1.15);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .color-dot {
+        width: 35px;
+        height: 35px;
+    }
+
+    .attire-intro {
+        font-size: 1rem;
+    }
 }
 
 /* Mobile: move them slightly so they don't block content */
@@ -1756,13 +2037,17 @@ footer {
         bottom: 20px;
         left: 20px;
     }
+
     .fab-text {
-        display: none; /* Only show icon on very small phones */
+        display: inline-block !important;
+        font-size: 0.7rem;
     }
+
     .rsvp-fab {
-        width: 45px;
-        height: 45px;
-        padding: 0;
+        width: auto !important;
+        height: 40px;
+        padding: 0 15px;
+        border-radius: 20px;
     }
 }
 
@@ -1770,14 +2055,17 @@ footer {
 @media (max-width: 768px) {
     .hero {
         /* FIX 1: Background visibility */
-        background-attachment: scroll !important; /* Mobile doesn't support 'fixed' */
+        background-attachment: scroll !important;
+        /* Mobile doesn't support 'fixed' */
         background-position: center center;
         background-size: cover;
-        
+
         /* FIX 2: Clear the navbar overlap */
-        padding-top: 120px; /* Pushes the 'You are invited' text down */
+        padding-top: 120px;
+        /* Pushes the 'You are invited' text down */
         display: flex;
-        align-items: flex-start; /* Shifts content to the top so it doesn't get cut off by bottom buttons */
+        align-items: flex-start;
+        /* Shifts content to the top so it doesn't get cut off by bottom buttons */
         height: auto;
         min-height: 100vh;
     }
@@ -1789,11 +2077,13 @@ footer {
 
     .hero-label {
         margin-top: 10px;
-        letter-spacing: 4px; /* Slightly tighter for small screens */
+        letter-spacing: 4px;
+        /* Slightly tighter for small screens */
     }
 
     .hero-names-elegant {
-        font-size: clamp(3rem, 12vw, 4.5rem); /* Prevents names from overflowing */
+        font-size: clamp(3rem, 12vw, 4.5rem);
+        /* Prevents names from overflowing */
         margin-top: 10px;
     }
 

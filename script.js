@@ -1,3 +1,12 @@
+// --- URL CLEANER: Removes Facebook tracking IDs (?fbclid=) ---
+(function() {
+    if (window.location.search.indexOf('fbclid=') !== -1) {
+        // This cleans the address bar without reloading the page
+        const cleanURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+        window.history.replaceState({}, document.title, cleanURL);
+    }
+})();
+
 // 1. Initialize Animations (AOS)
 AOS.init({ duration: 1200, once: true });
 
@@ -22,7 +31,8 @@ function toggleMusic() {
 // 4. Entrance Logic
 document.getElementById('enter-btn').addEventListener('click', () => {
     const overlay = document.getElementById('entrance-overlay');
-    
+    const navbar = document.getElementById('main-nav');
+
     // Hide overlay
     overlay.classList.add('hidden');
     setTimeout(() => {
@@ -95,14 +105,14 @@ window.onload = () => {
 };
 
 // 7. RSVP Success Handling
-document.getElementById('rsvpForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    this.style.opacity = '0';
-    setTimeout(() => {
-        this.style.display = 'none';
-        document.getElementById('rsvpSuccess').style.display = 'block';
-    }, 500);
-});
+// document.getElementById('rsvpForm').addEventListener('submit', function (e) {
+//     e.preventDefault();
+//     this.style.opacity = '0';
+//     setTimeout(() => {
+//         this.style.display = 'none';
+//         document.getElementById('rsvpSuccess').style.display = 'block';
+//     }, 500);
+// });
 
 
 
@@ -176,3 +186,50 @@ window.addEventListener('scroll', handleScroll);
 
 // Also run it on load in case the user refreshed the page while scrolled down
 window.addEventListener('load', handleScroll);
+
+
+// --- FIXED RSVP CONDITIONAL LOGIC ---
+document.addEventListener('DOMContentLoaded', function() {
+    const attendanceDropdown = document.getElementById('attendance-select');
+    const extraFieldsArea = document.getElementById('extra-fields');
+    const rsvpBtn = document.getElementById('submit-rsvp');
+    const successMsg = document.getElementById('rsvpSuccess');
+
+    if (attendanceDropdown && extraFieldsArea) {
+        attendanceDropdown.addEventListener('change', function() {
+            // Log for debugging (You can see this in F12 Console)
+            console.log("Attendance changed to: " + this.value);
+            
+            if (this.value === 'yes') {
+                extraFieldsArea.style.display = 'block';
+            } else {
+                extraFieldsArea.style.display = 'none';
+            }
+        });
+    }
+
+    // Handle the Submit Button Click
+    if (rsvpBtn) {
+        rsvpBtn.addEventListener('click', function() {
+            const nameInput = document.getElementById('guest-name');
+            const attendanceVal = attendanceDropdown.value;
+
+            if (!attendanceVal) {
+                alert("Please let us know if you can attend.");
+                return;
+            }
+            if (!nameInput || nameInput.value.trim() === "") {
+                alert("Please enter your name.");
+                return;
+            }
+
+            // Hide fields and show success
+            rsvpBtn.style.display = 'none';
+            if(attendanceDropdown) attendanceDropdown.parentElement.style.display = 'none';
+            if(nameInput) nameInput.parentElement.style.display = 'none';
+            if(extraFieldsArea) extraFieldsArea.style.display = 'none';
+            
+            if(successMsg) successMsg.style.display = 'block';
+        });
+    }
+});
