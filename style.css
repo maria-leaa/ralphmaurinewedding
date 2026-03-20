@@ -1765,3 +1765,48 @@ footer {
         padding: 0;
     }
 }
+
+/* --- MOBILE FIXES --- */
+@media (max-width: 768px) {
+    .hero {
+        /* FIX 1: Background visibility */
+        background-attachment: scroll !important; /* Mobile doesn't support 'fixed' */
+        background-position: center center;
+        background-size: cover;
+        
+        /* FIX 2: Clear the navbar overlap */
+        padding-top: 120px; /* Pushes the 'You are invited' text down */
+        display: flex;
+        align-items: flex-start; /* Shifts content to the top so it doesn't get cut off by bottom buttons */
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .hero-vignette {
+        /* Ensure the dark overlay isn't too strong on mobile */
+        background: radial-gradient(circle, rgba(26, 15, 13, 0.3) 0%, rgba(26, 15, 13, 0.8) 100%);
+    }
+
+    .hero-label {
+        margin-top: 10px;
+        letter-spacing: 4px; /* Slightly tighter for small screens */
+    }
+
+    .hero-names-elegant {
+        font-size: clamp(3rem, 12vw, 4.5rem); /* Prevents names from overflowing */
+        margin-top: 10px;
+    }
+
+    /* FIX 3: Music and RSVP Buttons */
+    .music-sphere {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .quick-nav {
+        bottom: 20px;
+        left: 20px;
+    }
+}
