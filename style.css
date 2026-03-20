@@ -2170,3 +2170,126 @@ footer {
         font-size: 1.2rem;
     }
 }
+
+/* --- CRITICAL MOBILE REPAIR --- */
+@media (max-width: 768px) {
+
+    /* 1. Force the Hero to be full width (removes the sidebars) */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .hero {
+        width: 100vw !important;
+        left: 0;
+        margin: 0;
+        background-attachment: scroll !important; /* STOPS THE "FLOATING" GLITCH */
+        background-position: center top !important;
+        background-size: cover !important;
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 80px; /* Space for the navbar */
+    }
+
+    /* 2. Fix the names so they don't cut off */
+    .hero-names-elegant {
+        font-size: 2.8rem !important; /* Smaller so "John Ralph" fits */
+        line-height: 1.2;
+        width: 100%;
+        display: block;
+        word-wrap: break-word;
+    }
+
+    .hero-names-container {
+        padding: 0 15px; /* Keeps text from touching the edge of the screen */
+    }
+
+    /* 3. Fix the Countdown numbers */
+    .countdown-minimal {
+        gap: 10px;
+        transform: scale(0.9); /* Shrinks it slightly to fit the screen */
+    }
+
+    .cd-item-elegant span {
+        font-size: 1.5rem !important;
+    }
+
+    /* 4. Fix Navigation spacing at the top */
+    .nav-container {
+        padding: 0 15px;
+        width: 100%;
+    }
+
+    /* 5. Fix the Floating Buttons (RSVP & Music) */
+    .music-sphere {
+        bottom: 20px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .quick-nav {
+        bottom: 20px;
+        left: 15px;
+    }
+
+    .rsvp-fab {
+        padding: 8px 12px;
+        font-size: 0.7rem;
+    }
+}
+
+/* --- ENTRANCE OVERLAY MOBILE REPAIR --- */
+@media (max-width: 600px) {
+    
+    /* 1. Fix the container padding */
+    .entrance-content {
+        width: 100%;
+        padding: 0 20px; /* Keeps text away from the very edge */
+        box-sizing: border-box;
+    }
+
+    /* 2. Shrink the main names so 'John Ralph' fits */
+    .names-elegant {
+        font-size: 2.8rem !important; /* Reduced from 4.5rem */
+        line-height: 1.1;
+        margin: 10px 0;
+        display: block;
+        width: 100%;
+        word-wrap: break-word;
+    }
+
+    /* 3. Handle the ampersand better */
+    .names-elegant .ampersand {
+        display: block; /* Puts & on its own line to save horizontal space */
+        font-size: 1.5rem;
+        margin: 5px 0;
+    }
+
+    /* 4. Fix the 'to the wedding of' subtitle */
+    .script-sub {
+        font-size: 1.8rem !important;
+        margin-bottom: 0;
+    }
+
+    /* 5. Adjust the divider height so the button is visible */
+    .entrance-divider {
+        height: 30px;
+        margin: 15px auto;
+    }
+
+    /* 6. Make the button fit the screen width better */
+    .btn-luxury-magical {
+        padding: 12px 25px;
+        font-size: 0.7rem;
+        letter-spacing: 3px;
+        width: 90%; /* Makes button easier to tap on mobile */
+        max-width: 300px;
+    }
+}
