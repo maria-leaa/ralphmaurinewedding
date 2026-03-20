@@ -2054,9 +2054,8 @@ footer {
 /* --- MOBILE FIXES --- */
 @media (max-width: 768px) {
     .hero {
-        /* FIX 1: Background visibility */
+
         background-attachment: scroll !important;
-        /* Mobile doesn't support 'fixed' */
         background-position: center center;
         background-size: cover;
 
@@ -2098,5 +2097,76 @@ footer {
     .quick-nav {
         bottom: 20px;
         left: 20px;
+    }
+}
+
+/* --- COMPREHENSIVE MOBILE FIXES --- */
+@media (max-width: 768px) {
+    
+    /* 1. Global Section Spacing - Makes the page feel more compact */
+    .section-enchanted-light, 
+    .section-dark {
+        padding: 60px 0; /* Cut the "dead space" in half */
+    }
+
+    /* 2. Fix the Hero Section so it doesn't cut off */
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 100px 0 60px; /* Gives room for the navbar */
+    }
+    .hero-names-elegant {
+        font-size: 3.5rem; /* Stop the names from overflowing the edges */
+        line-height: 1.1;
+    }
+
+    /* 3. Fix Our Story Layout */
+    .story-wrapper {
+        gap: 30px; /* Reduce the huge gap between photo and text */
+    }
+    .story-text-container {
+        padding: 0 10px;
+    }
+
+    /* 4. Fix Entourage & Sponsors (The horizontal scroll fix) */
+    .sponsors-directory, 
+    .venue-flex-grid, 
+    .reminders-grid {
+        grid-template-columns: 1fr !important; /* Forces one single column */
+        gap: 20px;
+    }
+    .sponsors-grand-container {
+        padding: 30px 15px; /* Shrink the huge box */
+    }
+    .sponsors-directory ul {
+        margin-bottom: 0;
+    }
+
+    /* 5. Fix Timeline Squishing */
+    .timeline-magical {
+        padding-left: 30px; /* Give the text more room */
+    }
+    .timeline-magical::before {
+        left: 10px; /* Move the vertical line to the edge */
+    }
+    .timeline-item::before {
+        left: -25px; /* Re-align the dots */
+    }
+    .tm-title {
+        font-size: 1.1rem;
+    }
+
+    /* 6. Fix Gift Guide / QR Cards */
+    .qr-container-row {
+        gap: 20px;
+    }
+    .qr-card-luxury {
+        width: 100%; /* Make QR cards full width of their container */
+        max-width: 280px; /* But don't let them get too giant */
+    }
+
+    /* 7. Navigation Text Fix */
+    .nav-logo {
+        font-size: 1.2rem;
     }
 }
