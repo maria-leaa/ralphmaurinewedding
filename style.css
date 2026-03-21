@@ -32,6 +32,7 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: 1;
+    overflow: hidden;
 }
 
 .firefly {
@@ -197,7 +198,9 @@ body {
 /* Exit Animation */
 #entrance-overlay.hidden {
     opacity: 0;
-    transition: opacity 2s ease-in-out;
+    pointer-events: none; 
+    visibility: hidden;   
+    transition: opacity 2s ease-in-out, visibility 2s;
 }
 
 /* --- MAGICAL LUXURY BUTTON --- */
@@ -2382,4 +2385,13 @@ footer {
 .hero {
     height: 100dvh;
     /* Use dvh instead of vh */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#entrance-overlay, .hero {
+    height: 100vh; /* Fallback */
+    height: 100dvh; /* Modern mobile fix */
 }

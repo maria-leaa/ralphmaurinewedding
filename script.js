@@ -1,16 +1,19 @@
-// --- URL CLEANER: Removes Facebook tracking IDs (?fbclid=) ---
+// --- URL CLEANER ---
 (function() {
     if (window.location.search.indexOf('fbclid=') !== -1) {
-        // This cleans the address bar without reloading the page
         const cleanURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
         window.history.replaceState({}, document.title, cleanURL);
     }
 })();
 
-// 1. Initialize Animations (AOS)
+// --- 1. LOCK SCROLL IMMEDIATELY ---
+// This stops the user from scrolling behind the overlay
+document.body.style.overflow = 'hidden';
+
+// 2. Initialize AOS (But we will refresh it later)
 AOS.init({ duration: 1200, once: true });
 
-// 2. Global Variables for Music
+// 3. Global Variables
 const music = document.getElementById('bg-music');
 const mIcon = document.getElementById('m-icon');
 let isPlaying = false;
@@ -29,22 +32,51 @@ function toggleMusic() {
 }
 
 // 4. Entrance Logic
+// document.getElementById('enter-btn').addEventListener('click', () => {
+//     const overlay = document.getElementById('entrance-overlay');
+//     const navbar = document.getElementById('main-nav');
+
+//     // Hide overlay
+//     overlay.classList.add('hidden');
+//     setTimeout(() => {
+//         overlay.style.display = 'none';
+//         navbar.style.display = 'block'; 
+//     }, 2000);
+
+//     // Play Music and Update State
+//     music.play().then(() => {
+//         isPlaying = true;
+//         mIcon.innerText = "🎵";
+//     }).catch(e => console.log("Audio blocked by browser. User must interact first."));
+// });
+
+// 4. Entrance Logic
 document.getElementById('enter-btn').addEventListener('click', () => {
     const overlay = document.getElementById('entrance-overlay');
     const navbar = document.getElementById('main-nav');
 
+    // UNLOCK SCROLLING
+    document.body.style.overflow = 'auto';
+    document.body.style.overflowX = 'hidden'; // Keep horizontal lock
+
     // Hide overlay
     overlay.classList.add('hidden');
+    
+    // Immediately set navbar to block but keep it transparent or handled by CSS
+    // to prevent the layout from "jumping" later
+    navbar.style.display = 'block'; 
+
     setTimeout(() => {
         overlay.style.display = 'none';
-        navbar.style.display = 'block'; 
+        // Refresh AOS positions now that the overlay is gone
+        AOS.refresh();
     }, 2000);
 
-    // Play Music and Update State
+    // Play Music
     music.play().then(() => {
         isPlaying = true;
         mIcon.innerText = "🎵";
-    }).catch(e => console.log("Audio blocked by browser. User must interact first."));
+    }).catch(e => console.log("Audio blocked"));
 });
 
 function createFireflies() {
