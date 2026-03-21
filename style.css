@@ -195,13 +195,19 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+.lock-scroll {
+    overflow: hidden !important;
+    height: 100% !important;
+    width: 100% !important;
+    position: fixed; 
+}
+
 /* Exit Animation */
 #entrance-overlay.hidden {
     opacity: 0;
     pointer-events: none; 
     visibility: hidden;   
-    /* transition: opacity 2s ease-in-out, visibility 2s; */
-    transition: opacity 2s ease-in-out;
+    transition: opacity 2s ease-in-out, visibility 2s;
 }
 
 /* --- MAGICAL LUXURY BUTTON --- */
@@ -1676,7 +1682,10 @@ footer {
     background: rgba(26, 15, 13, 0.0);
     /* background: rgba(20, 20, 20, 0.8); */
     /* Transparent initially */
-    display: none;
+    /* display: none; */
+    display: block !important; 
+    opacity: 0;
+    visibility: hidden;
     backdrop-filter: blur(10px);
     /* Hidden until invitation is opened */
 }
@@ -2390,6 +2399,7 @@ footer {
 
 html {
     scroll-behavior: smooth;
+    scrollbar-gutter: stable; 
 }
 
 #entrance-overlay, .hero {

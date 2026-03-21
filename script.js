@@ -50,6 +50,21 @@ function toggleMusic() {
 //     }).catch(e => console.log("Audio blocked by browser. User must interact first."));
 // });
 
+// --- 1. LOCK SCROLL IMMEDIATELY ---
+// We target both for maximum compatibility
+const lockScroll = () => {
+    document.documentElement.classList.add('lock-scroll');
+    document.body.classList.add('lock-scroll');
+};
+
+const unlockScroll = () => {
+    document.documentElement.classList.remove('lock-scroll');
+    document.body.classList.remove('lock-scroll');
+};
+
+// Lock right away
+lockScroll();
+
 // 4. Entrance Logic
 document.getElementById('enter-btn').addEventListener('click', () => {
     const overlay = document.getElementById('entrance-overlay');
@@ -94,7 +109,8 @@ function createFireflies() {
 
         // Random starting position
         firefly.style.left = Math.random() * 100 + 'vw';
-        firefly.style.top = (Math.random() * 100 + 100) + 'vh'; // Start below view
+        // firefly.style.top = (Math.random() * 100 + 100) + 'vh'; // Start below view
+        firefly.style.top = Math.random() * 100 + 'vh';
 
         // Randomize speed and delay
         firefly.style.animation = `drift ${Math.random() * 15 + 10}s linear infinite`;
