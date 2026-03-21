@@ -113,6 +113,11 @@ body {
     text-align: center;
     z-index: 10;
     padding: 20px;
+    width: 100%;
+    max-width: 100vw;         /* Prevents horizontal overflow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .invited-label {
@@ -230,6 +235,12 @@ body {
     animation: floating 3s ease-in-out infinite;
     backdrop-filter: blur(10px);
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+     white-space: nowrap;      /* FIX: Prevents text from breaking into 2 lines */
+    display: inline-flex;     /* FIX: Helps keep content perfectly centered */
+    align-items: center;
+    justify-content: center;
+    width: auto;              /* FIX: Let it be as wide as the text needs */
+    min-width: 280px;         /* Optional: Ensures a nice consistent luxury size */
 }
 
 /* 2. Shimmer Effect (Metallic glint passing through) */
@@ -2349,13 +2360,20 @@ footer {
     }
 
     /* 6. Make the button fit the screen width better */
-    .btn-luxury-magical {
+    /* .btn-luxury-magical {
         padding: 12px 25px;
         font-size: 0.7rem;
         letter-spacing: 3px;
         width: 90%;
-        /* Makes button easier to tap on mobile */
         max-width: 300px;
+    } */
+     .btn-luxury-magical {
+        padding: 12px 30px;
+        font-size: 0.75rem;   /* Slightly smaller font to fit screen width */
+        letter-spacing: 2px;  /* Tighter spacing so it fits on one line on small phones */
+        width: auto;          /* REMOVE width: 90%; as it causes the squishing */
+        max-width: 95vw;      /* Ensure it doesn't go off the screen edges */
+        white-space: nowrap;  /* Force single line again here */
     }
 }
 
