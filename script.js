@@ -66,19 +66,46 @@ const unlockScroll = () => {
 lockScroll();
 
 // 4. Entrance Logic
+// document.getElementById('enter-btn').addEventListener('click', () => {
+//     const overlay = document.getElementById('entrance-overlay');
+//     const navbar = document.getElementById('main-nav');
+
+//     // UNLOCK SCROLLING
+//     document.body.style.overflow = 'auto';
+//     document.body.style.overflowX = 'hidden'; // Keep horizontal lock
+
+//     // Hide overlay
+//     overlay.classList.add('hidden');
+    
+//     // Immediately set navbar to block but keep it transparent or handled by CSS
+//     // to prevent the layout from "jumping" later
+//     navbar.style.display = 'block'; 
+
+//     setTimeout(() => {
+//         overlay.style.display = 'none';
+//         // Refresh AOS positions now that the overlay is gone
+//         AOS.refresh();
+//     }, 2000);
+
+//     // Play Music
+//     music.play().then(() => {
+//         isPlaying = true;
+//         mIcon.innerText = "🎵";
+//     }).catch(e => console.log("Audio blocked"));
+// });
+
+// 4. Entrance Logic
 document.getElementById('enter-btn').addEventListener('click', () => {
     const overlay = document.getElementById('entrance-overlay');
     const navbar = document.getElementById('main-nav');
 
-    // UNLOCK SCROLLING
-    document.body.style.overflow = 'auto';
-    document.body.style.overflowX = 'hidden'; // Keep horizontal lock
+    // --- FIX: CALL THE UNLOCK FUNCTION YOU CREATED ---
+    unlockScroll(); 
 
     // Hide overlay
     overlay.classList.add('hidden');
     
-    // Immediately set navbar to block but keep it transparent or handled by CSS
-    // to prevent the layout from "jumping" later
+    // Show navbar
     navbar.style.display = 'block'; 
 
     setTimeout(() => {
