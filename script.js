@@ -187,7 +187,7 @@ document.getElementById('enter-btn').addEventListener('click', () => {
     setTimeout(() => {
         overlay.style.display = 'none';
         AOS.refresh(); // Refresh AOS so animations work on the now-visible page
-    }, 2000);
+    }, 100);
 
     // F. PLAY MUSIC:
     if (music) {
