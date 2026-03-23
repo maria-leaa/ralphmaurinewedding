@@ -63,12 +63,37 @@ const lockScroll = () => {
 // };
 
 // Locate your unlockScroll function and update it to this:
+// const unlockScroll = () => {
+//     document.documentElement.classList.remove('lock-scroll');
+//     document.body.classList.remove('lock-scroll');
+
+//     document.body.style.overflow = ''; 
+//     document.body.style.overflowX = 'hidden';
+// };
+
+// --- UPDATED UNLOCK FUNCTION ---
 const unlockScroll = () => {
+    // 1. Remove the CSS classes
     document.documentElement.classList.remove('lock-scroll');
     document.body.classList.remove('lock-scroll');
 
-    document.body.style.overflow = ''; 
+    // 2. Clear inline styles that might have been added by JS
+    // We set them to empty strings '' so the browser goes back to default CSS
+    document.body.style.position = '';
+    document.body.style.overflow = '';
+    document.body.style.height = '';
+    document.body.style.width = '';
+    document.body.style.top = '';
+
+    document.documentElement.style.position = '';
+    document.documentElement.style.overflow = '';
+    document.documentElement.style.height = '';
+
+    // 3. Re-apply ONLY the horizontal lock to prevent side-scrolling glitches
     document.body.style.overflowX = 'hidden';
+    
+    // 4. Force a tiny scroll to "wake up" the browser rendering engine
+    window.scrollTo(0, 0);
 };
 
 // Lock right away

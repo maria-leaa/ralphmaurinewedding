@@ -201,11 +201,22 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.lock-scroll {
+/* .lock-scroll {
     overflow: hidden !important;
     height: 100% !important;
     width: 100% !important;
-    /* position: fixed;  */
+    position: fixed; 
+} */
+
+/* Update this in your CSS */
+.lock-scroll {
+    overflow: hidden !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    width: 100% !important;
+    position: fixed !important; 
+    top: 0;
+    left: 0;
 }
 
 /* Exit Animation */
