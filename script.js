@@ -77,21 +77,23 @@ const lockScroll = () => {
 
 // --- UPDATED UNLOCK FUNCTION ---
 const unlockScroll = () => {
+    // Remove the CSS classes
     document.documentElement.classList.remove('lock-scroll');
     document.body.classList.remove('lock-scroll');
 
-    // Clear all possible locking styles
+    // Wipe all inline styles so Laptop/Desktop returns to normal
     document.body.style.position = '';
     document.body.style.overflow = '';
     document.body.style.height = '';
     document.body.style.width = '';
     document.body.style.top = '';
-    document.body.style.overflowX = 'hidden'; // Keep horizontal lock
+    document.body.style.overflowX = 'hidden'; // Prevents horizontal wiggle
 
     document.documentElement.style.position = '';
     document.documentElement.style.overflow = '';
     document.documentElement.style.height = '';
 
+    // Wake up the scrollbar
     window.scrollTo(0, 0);
 };
 
@@ -128,31 +130,72 @@ lockScroll();
 // });
 
 // 4. Entrance Logic
+// document.getElementById('enter-btn').addEventListener('click', () => {
+//     const overlay = document.getElementById('entrance-overlay');
+//     const navbar = document.getElementById('main-nav');
+
+//     overlay.style.pointerEvents = 'none';
+//     // --- FIX: CALL THE UNLOCK FUNCTION YOU CREATED ---
+//     unlockScroll(); 
+
+//     // Hide overlay
+//     overlay.classList.add('hidden');
+    
+//     // Show navbar
+//     navbar.style.display = 'block'; 
+
+//     setTimeout(() => {
+//         overlay.style.display = 'none';
+//         AOS.refresh();
+//     }, 100);
+
+//     // Play Music
+//     music.play().then(() => {
+//         isPlaying = true;
+//         mIcon.innerText = "🎵";
+//     }).catch(e => console.log("Audio blocked"));
+// });
+
+// --- 2. ENTRANCE LOGIC ---
+
 document.getElementById('enter-btn').addEventListener('click', () => {
     const overlay = document.getElementById('entrance-overlay');
     const navbar = document.getElementById('main-nav');
 
+    // A. INSTANT ACTION: Make overlay "ghost-like" so it doesn't block scroll
     overlay.style.pointerEvents = 'none';
-    // --- FIX: CALL THE UNLOCK FUNCTION YOU CREATED ---
+    
+    // B. INSTANT ACTION: Unlock the page for Laptop and Mobile
     unlockScroll(); 
 
-    // Hide overlay
+    // C. START VISUALS: Trigger the CSS fade-out (opacity: 0)
     overlay.classList.add('hidden');
     
-    // Show navbar
-    navbar.style.display = 'block'; 
+    // D. SHOW NAVBAR:
+    if (navbar) {
+        navbar.style.display = 'block'; 
+        // Small timeout so the opacity transition has time to trigger
+        setTimeout(() => {
+            navbar.style.opacity = '1';
+            navbar.style.visibility = 'visible';
+            navbar.style.zIndex = '1000'; // Ensure it's on top
+        }, 50);
+    }
 
+    // E. CLEANUP DOM: 
+    // We wait 2000ms to let the fade finish before deleting the overlay
     setTimeout(() => {
         overlay.style.display = 'none';
-        // Refresh AOS positions now that the overlay is gone
-        AOS.refresh();
+        AOS.refresh(); // Refresh AOS so animations work on the now-visible page
     }, 2000);
 
-    // Play Music
-    music.play().then(() => {
-        isPlaying = true;
-        mIcon.innerText = "🎵";
-    }).catch(e => console.log("Audio blocked"));
+    // F. PLAY MUSIC:
+    if (music) {
+        music.play().then(() => {
+            isPlaying = true;
+            mIcon.innerText = "🎵";
+        }).catch(e => console.log("Audio blocked"));
+    }
 });
 
 function createFireflies() {
