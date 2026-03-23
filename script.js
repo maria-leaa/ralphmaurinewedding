@@ -57,9 +57,18 @@ const lockScroll = () => {
     document.body.classList.add('lock-scroll');
 };
 
+// const unlockScroll = () => {
+//     document.documentElement.classList.remove('lock-scroll');
+//     document.body.classList.remove('lock-scroll');
+// };
+
+// Locate your unlockScroll function and update it to this:
 const unlockScroll = () => {
     document.documentElement.classList.remove('lock-scroll');
     document.body.classList.remove('lock-scroll');
+
+    document.body.style.overflow = ''; 
+    document.body.style.overflowX = 'hidden';
 };
 
 // Lock right away
