@@ -52,10 +52,7 @@ function toggleMusic() {
 
 // --- 1. LOCK SCROLL IMMEDIATELY ---
 // We target both for maximum compatibility
-const lockScroll = () => {
-    document.documentElement.classList.add('lock-scroll');
-    document.body.classList.add('lock-scroll');
-};
+
 
 // const unlockScroll = () => {
 //     document.documentElement.classList.remove('lock-scroll');
@@ -71,28 +68,30 @@ const lockScroll = () => {
 //     document.body.style.overflowX = 'hidden';
 // };
 
+const lockScroll = () => {
+    document.documentElement.classList.add('lock-scroll');
+    document.body.classList.add('lock-scroll');
+
+    document.body.style.overflow = 'hidden';
+};
+
 // --- UPDATED UNLOCK FUNCTION ---
 const unlockScroll = () => {
-    // 1. Remove the CSS classes
     document.documentElement.classList.remove('lock-scroll');
     document.body.classList.remove('lock-scroll');
 
-    // 2. Clear inline styles that might have been added by JS
-    // We set them to empty strings '' so the browser goes back to default CSS
+    // Clear all possible locking styles
     document.body.style.position = '';
     document.body.style.overflow = '';
     document.body.style.height = '';
     document.body.style.width = '';
     document.body.style.top = '';
+    document.body.style.overflowX = 'hidden'; // Keep horizontal lock
 
     document.documentElement.style.position = '';
     document.documentElement.style.overflow = '';
     document.documentElement.style.height = '';
 
-    // 3. Re-apply ONLY the horizontal lock to prevent side-scrolling glitches
-    document.body.style.overflowX = 'hidden';
-    
-    // 4. Force a tiny scroll to "wake up" the browser rendering engine
     window.scrollTo(0, 0);
 };
 
@@ -133,6 +132,7 @@ document.getElementById('enter-btn').addEventListener('click', () => {
     const overlay = document.getElementById('entrance-overlay');
     const navbar = document.getElementById('main-nav');
 
+    overlay.style.pointerEvents = 'none';
     // --- FIX: CALL THE UNLOCK FUNCTION YOU CREATED ---
     unlockScroll(); 
 
