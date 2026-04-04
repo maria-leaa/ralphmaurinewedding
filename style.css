@@ -201,12 +201,6 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* .lock-scroll {
-    overflow: hidden !important;
-    height: 100% !important;
-    width: 100% !important;
-    position: fixed; 
-} */
 
 /* Update this in your CSS */
 .lock-scroll {
@@ -214,7 +208,7 @@ body {
     height: 100vh !important;
     height: 100dvh !important;
     width: 100% !important;
-    position: fixed !important; 
+    /* position: fixed !important;  */
     top: 0;
     left: 0;
 }
@@ -342,15 +336,34 @@ body {
 
 
 /* --- ELEGANT HERO OVERHAUL --- */
-.hero {
+/* .hero {
     padding-top: 100px;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    background: url('couple2.png') no-repeat center center/cover;
+    background: url('couple-cover1.jpg') no-repeat center center/cover;
     background-attachment: fixed;
+    overflow: hidden;
+} */
+
+.hero {
+    padding-top: 100px;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+    /* WEB IMAGE SETUP */
+    background-image: url('couple-cover1.jpg'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* Keep parallax effect for desktop */
+    
     overflow: hidden;
 }
 
@@ -1776,16 +1789,25 @@ footer {
 
 /* Update your existing @media query in style.css */
 @media (max-width: 900px) {
-    .navbar {
+    /* .navbar {
         display: none;
-        /* Force it to show on small screens */
         background: rgba(26, 15, 13, 0.9);
-        /* Give it a background so you can see it */
+        
+    } */
+    .navbar {
+        display: block !important; 
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease;
     }
 
-    .navbar.active-nav {
+    /* .navbar.active-nav {
         display: block !important;
-        /* This will be triggered by JS */
+    } */
+
+    .navbar.active-nav {
+        opacity: 1;
+        visibility: visible;
     }
 
     .hamburger {
@@ -2111,26 +2133,63 @@ footer {
 
 /* --- MOBILE FIXES --- */
 @media (max-width: 768px) {
-    .hero {
+    /* .hero {
 
         background-attachment: scroll !important;
         background-position: center center;
         background-size: cover;
-
-        /* FIX 2: Clear the navbar overlap */
         padding-top: 120px;
-        /* Pushes the 'You are invited' text down */
         display: flex;
-        /* align-items: flex-start; */
         align-items: center;
-        /* Shifts content to the top so it doesn't get cut off by bottom buttons */
         height: auto;
         min-height: 100vh;
+    } */
+/* 
+    .hero {
+        background-position: center center !important; 
+        background-size: cover !important;
+        background-attachment: scroll !important;
+
+        height: 100dvh !important; 
+        min-height: 600px; 
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 60px;
+    } */
+
+    .hero {
+        /* MOBILE IMAGE SWAP */
+        background-image: url('couple-cover.jpg') !important; 
+        
+        /* IMPORTANT: Fixed attachment causes zoom/blur bugs on iPhone. 
+           Change to scroll for mobile. */
+        background-attachment: scroll !important; 
+        
+        /* Adjust centering for the vertical photo */
+        background-position: center center !important;
+        background-size: cover !important;
+        
+        height: 100dvh !important;
     }
 
-    .hero-vignette {
-        /* Ensure the dark overlay isn't too strong on mobile */
+
+    /* .hero-vignette {
         background: radial-gradient(circle, rgba(26, 15, 13, 0.3) 0%, rgba(26, 15, 13, 0.8) 100%);
+    } */
+
+    /* .hero-vignette {
+        background: linear-gradient(
+            to bottom,
+            rgba(26, 15, 13, 0.5) 0%, 
+            rgba(26, 15, 13, 0.2) 50%, 
+            rgba(26, 15, 13, 0.7) 100%
+        ) !important;
+    } */
+
+    .hero-vignette {
+        background: radial-gradient(circle, rgba(26, 15, 13, 0.3) 0%, rgba(26, 15, 13, 0.8) 100%) !important;
     }
 
     .hero-label {
@@ -2139,10 +2198,14 @@ footer {
         /* Slightly tighter for small screens */
     }
 
-    .hero-names-elegant {
+    /* .hero-names-elegant {
         font-size: clamp(3rem, 12vw, 4.5rem);
-        /* Prevents names from overflowing */
         margin-top: 10px;
+    } */
+
+    .hero-names-elegant {
+        font-size: 3rem !important;
+        text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5) !important;
     }
 
     /* FIX 3: Music and RSVP Buttons */
@@ -2432,7 +2495,20 @@ html {
     scrollbar-gutter: stable; 
 }
 
+/* #entrance-overlay, .hero {
+    height: 100vh; 
+    height: 100dvh;
+} */
+
 #entrance-overlay, .hero {
-    height: 100vh; /* Fallback */
-    height: 100dvh; /* Modern mobile fix */
+    height: 100vh; 
+    height: 100dvh; 
+    width: 100%;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; 
 }
