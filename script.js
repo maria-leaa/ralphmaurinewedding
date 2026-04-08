@@ -340,48 +340,110 @@ window.addEventListener('scroll', handleScroll);
 window.addEventListener('load', handleScroll);
 
 
-// --- FIXED RSVP CONDITIONAL LOGIC ---
+// // --- FIXED RSVP CONDITIONAL LOGIC ---
+// document.addEventListener('DOMContentLoaded', function() {
+//     const attendanceDropdown = document.getElementById('attendance-select');
+//     const extraFieldsArea = document.getElementById('extra-fields');
+//     const rsvpBtn = document.getElementById('submit-rsvp');
+//     const successMsg = document.getElementById('rsvpSuccess');
+
+//     if (attendanceDropdown && extraFieldsArea) {
+//         attendanceDropdown.addEventListener('change', function() {
+//             // Log for debugging (You can see this in F12 Console)
+//             console.log("Attendance changed to: " + this.value);
+            
+//             if (this.value === 'yes') {
+//                 extraFieldsArea.style.display = 'block';
+//             } else {
+//                 extraFieldsArea.style.display = 'none';
+//             }
+//         });
+//     }
+
+//     // Handle the Submit Button Click
+//     if (rsvpBtn) {
+//         rsvpBtn.addEventListener('click', function() {
+//             const nameInput = document.getElementById('guest-name');
+//             const attendanceVal = attendanceDropdown.value;
+
+//             if (!attendanceVal) {
+//                 alert("Please let us know if you can attend.");
+//                 return;
+//             }
+//             if (!nameInput || nameInput.value.trim() === "") {
+//                 alert("Please enter your name.");
+//                 return;
+//             }
+
+//             // Hide fields and show success
+//             rsvpBtn.style.display = 'none';
+//             if(attendanceDropdown) attendanceDropdown.parentElement.style.display = 'none';
+//             if(nameInput) nameInput.parentElement.style.display = 'none';
+//             if(extraFieldsArea) extraFieldsArea.style.display = 'none';
+            
+//             if(successMsg) successMsg.style.display = 'block';
+//         });
+//     }
+// });
+
+
+// --- RSVP GOOGLE SHEETS CONNECTION ---
 document.addEventListener('DOMContentLoaded', function() {
-    const attendanceDropdown = document.getElementById('attendance-select');
-    const extraFieldsArea = document.getElementById('extra-fields');
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwfLnV5rEjC8tVJSSyMFq_p0y8GZoPCkaOKUvZkSH81aSeDi0zBlro2Qdt03BOvwZWZTA/exec';
     const rsvpBtn = document.getElementById('submit-rsvp');
+    const attendanceSelect = document.getElementById('attendance-select');
+    const extraFields = document.getElementById('extra-fields');
     const successMsg = document.getElementById('rsvpSuccess');
 
-    if (attendanceDropdown && extraFieldsArea) {
-        attendanceDropdown.addEventListener('change', function() {
-            // Log for debugging (You can see this in F12 Console)
-            console.log("Attendance changed to: " + this.value);
-            
-            if (this.value === 'yes') {
-                extraFieldsArea.style.display = 'block';
-            } else {
-                extraFieldsArea.style.display = 'none';
-            }
-        });
-    }
+    // Show/Hide fields based on attendance
+    attendanceSelect.addEventListener('change', function() {
+        if (this.value === 'yes') {
+            extraFields.style.display = 'block';
+        } else {
+            extraFields.style.display = 'none';
+        }
+    });
 
-    // Handle the Submit Button Click
-    if (rsvpBtn) {
-        rsvpBtn.addEventListener('click', function() {
-            const nameInput = document.getElementById('guest-name');
-            const attendanceVal = attendanceDropdown.value;
+    // Handle Submit
+    rsvpBtn.addEventListener('click', function(e) {
+        e.preventDefault();
 
-            if (!attendanceVal) {
-                alert("Please let us know if you can attend.");
-                return;
-            }
-            if (!nameInput || nameInput.value.trim() === "") {
-                alert("Please enter your name.");
-                return;
-            }
+        const name = document.getElementById('guest-name').value;
+        const attendance = attendanceSelect.value;
+        const school = document.getElementById('guest-school').value;
+        const role = document.getElementById('guest-role').value;
+        const count = document.getElementById('guest-count').value;
+        const seatConfirm = document.getElementById('seat-confirm').checked ? "Acknowledged" : "Not Checked";
 
-            // Hide fields and show success
-            rsvpBtn.style.display = 'none';
-            if(attendanceDropdown) attendanceDropdown.parentElement.style.display = 'none';
-            if(nameInput) nameInput.parentElement.style.display = 'none';
-            if(extraFieldsArea) extraFieldsArea.style.display = 'none';
-            
-            if(successMsg) successMsg.style.display = 'block';
-        });
-    }
+        if (!attendance) return alert("Please select your attendance status.");
+        if (!name.trim()) return alert("Please enter your full name.");
+
+        // UI Loading
+        rsvpBtn.innerText = "SENDING...";
+        rsvpBtn.disabled = true;
+
+        const formData = new FormData();
+        formData.append('Name', name);
+        formData.append('Attendance', attendance);
+        formData.append('School', attendance === 'yes' ? school : 'N/A');
+        formData.append('Role', attendance === 'yes' ? role : 'N/A');
+        formData.append('Guest Count', attendance === 'yes' ? count : '0');
+        formData.append('Acknowledge Seating', seatConfirm);
+
+        fetch(scriptURL, { method: 'POST', body: formData })
+            .then(response => {
+                // Success UI
+                document.querySelector('.rsvp-message-box').style.display = 'none';
+                attendanceSelect.parentElement.style.display = 'none';
+                document.getElementById('guest-name').parentElement.style.display = 'none';
+                extraFields.style.display = 'none';
+                rsvpBtn.style.display = 'none';
+                successMsg.style.display = 'block';
+            })
+            .catch(error => {
+                alert("Error submitting. Please try again.");
+                rsvpBtn.innerText = "SUBMIT RSVP";
+                rsvpBtn.disabled = false;
+            });
+    });
 });
